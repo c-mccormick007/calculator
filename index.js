@@ -91,6 +91,7 @@ function inputOperator(oper){
                 calculator.operator = oper;
                 calculator.checkSecondOperand = true;
                 calculator.operatorClicked = true;
+                calculator.equalPressed = false;
             }else{
                 calculator.operator = oper;
                 let result = operate(calculator.operator, calculator.firstNum, parseFloat(calculator.displayValue))
@@ -112,12 +113,16 @@ function equal(){
     if (!calculator.operator){
         console.log("error");
     }else{
-        calculator.displayValue = operate(calculator.operator, calculator.firstNum, parseFloat(calculator.displayValue));
-        updateDisplay();
-        calculator.firstNum = parseFloat(calculator.displayValue);
-        calculator.checkSecondOperand = true;
-        calculator.equalPressed = true;
-        console.log(calculator);
+        if (calculator.equalPressed == false){
+            calculator.displayValue = operate(calculator.operator, calculator.firstNum, parseFloat(calculator.displayValue));
+            updateDisplay();
+            calculator.firstNum = parseFloat(calculator.displayValue);
+            calculator.checkSecondOperand = true;
+            calculator.equalPressed = true;
+            console.log(calculator);
+        }else{
+            console.log("Stop");
+        }
     }
 }
 
