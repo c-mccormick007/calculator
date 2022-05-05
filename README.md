@@ -1,1 +1,1 @@
-# calculator
+This is a calculator that displays use of Javascript, CSS, and HTML. This is the final project on the foundations of the Odin Project.
