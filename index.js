@@ -4,13 +4,27 @@ const equalsButton = document.querySelectorAll('[data-equals]')
 const clearButton = document.querySelectorAll('[data-clear]')
 let display = document.getElementById('display');
 
+// make the object tomorrow.
+
+// const calculator = {
+//     displayValue: '0',
+//     firstNum: null,
+//     operator: null,
+//     checkSecondOperand: false,
+// };
+
 let inputOne = null;
 let inputTwo = null;
 let operand = null;
+let previous = 
 
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
+        if (operand == null){
         display.append(button.innerHTML);
+        }else{
+            display.append(button.innerHTML);
+        }
     })
 })
 
@@ -19,8 +33,6 @@ operationButtons.forEach(button => {
         if (inputOne == null){
             inputOne = parseInt(display.innerHTML);
             operand = button.innerHTML;
-            display.innerHTML = '';
-            console.log(`${inputOne} - ${operand} - ${inputTwo}`);
         }else{
             console.log(`${inputOne} - ${operand} - ${inputTwo}`);
         }
