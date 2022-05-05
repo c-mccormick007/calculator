@@ -6,56 +6,49 @@ let display = document.getElementById('display');
 
 // make the object tomorrow.
 
-// const calculator = {
-//     displayValue: '0',
-//     firstNum: null,
-//     operator: null,
-//     checkSecondOperand: false,
-// };
+const calculator = {
+    displayValue: '0',
+    firstNum: null,
+    operator: null,
+    checkSecondOperand: false,
+};
 
-let inputOne = null;
-let inputTwo = null;
-let operand = null;
-let previous = 
+updateDisplay();
 
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
-        if (operand == null){
-        display.append(button.innerHTML);
-        }else{
-            display.append(button.innerHTML);
-        }
+        inputDigit(button.innerText);
     })
 })
 
 operationButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        if (inputOne == null){
-            inputOne = parseInt(display.innerHTML);
-            operand = button.innerHTML;
-        }else{
-            console.log(`${inputOne} - ${operand} - ${inputTwo}`);
-        }
-    })
+    button.addEventListener('click', () => { })
 })
 
 equalsButton.forEach(button => {
-    button.addEventListener('click', () => {
-        inputTwo = parseInt(display.innerHTML);
-        display.innerHTML = operate(operand, inputOne, inputTwo);
-        console.log(`${inputOne} ${operand} ${inputTwo}`);
-    })
+    button.addEventListener('click', () => { })
 })
 
 clearButton.forEach(button => {
     button.addEventListener('click', () => {
-        display.innerHTML = '';
-        inputOne = null;
-        inputTwo = null;
+        clear();
     })
 })
 
+function updateDisplay(){
+    display.innerText = calculator.displayValue;
+}
 
+function inputDigit(digit){
+    const {displayValue} = calculator;
+    calculator.displayValue = displayValue === '0' ? digit : displayValue + digit;
+    updateDisplay();
+}
+
+function clear(){
+    calculator.displayValue = '0';
+    updateDisplay();
+}
 
 function add(a,b){
     return a+b;
